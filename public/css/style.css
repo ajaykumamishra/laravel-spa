@@ -1,0 +1,51 @@
+.fullwith.text-right {
+    width: 100%;
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.model-form {
+    width: 100%;
+    margin: auto;
+    padding: 50px 100px;
+    background: gray;
+    position: absolute;
+    top: 0;
+  }
+  #modelform .form-group {
+    margin-bottom: 20px;
+    width:49%;
+    float: left;
+    height: 62px;
+  }
+  .form-group:nth-child(2n) {
+    margin-right: 2%;
+  }
+  .btn.action {
+    width: 40px;
+    float: left;
+    margin: 5px 5px;
+  }
+  th.text-end {
+    min-width: 100px;
+  }
+  .select2.select2-container.select2-container--default {
+    width: 100% !important;
+  }
+  .select2-selection.select2-selection--single {
+    height: 38px !important;
+  }
+  .select2-selection.select2-selection--single span {
+    padding: 5px !important;
+  }
+  .error-msg {
+    color: white;
+    font-weight: bold;
+    background: #bd362f;
+    padding: 5px;
+    border-radius: 4px;
+  }
+  #modelform .errormsg {
+    height: 25px;
+    margin-top: 5px;
+  }
