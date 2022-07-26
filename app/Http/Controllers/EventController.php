@@ -22,12 +22,11 @@ class EventController extends Controller
     }
 
     public function index_data(){
-        $module_name = Event::join('addresses','addresses.event_id','events.id')->join('countries','countries.id','addresses.country')->join('states','states.id','addresses.state')->join('cities','cities.id','addresses.city')->select('events.*','addresses.*','countries.name','states.name','cities.name')->get();
-        return $module_name;
+        $module_name = Event::join('addresses','addresses.event_id','events.id')->join('countries','countries.id','addresses.country')->join('states','states.id','addresses.state')->join('cities','cities.id','addresses.city')->select('events.*','addresses.*','countries.name as country_name','states.name as state_name','cities.name as city_name')->get();
         $data = $module_name;
         return DataTables::of($module_name)
         ->addColumn('address', function ($data){
-            return $data->eventAddress->address_line1.' ,'.$data->eventAddress->address_line2.', '.findCity($data->eventAddress->city)->name.', '.findState($data->eventAddress->state)->name.', '.findCountry($data->eventAddress->country)->name.', '.$data->eventAddress->pincode;
+            return $data->address_line1.' ,'.$data->address_line2.' ,'.$data->country_name.' ,'.$data->state_name.' ,'.$data->city_name.', '.$data->pincode;
         })
         ->addColumn('action', function ($data){
             return '<button class="btn btn-primary action" onclick="manageEvent(\'edit\','.$data->id.')"><i class="fa fa-edit"></i></button><button class="btn btn-danger action" onclick="manageEvent(\'delete\','.$data->id.')"><i class="fa fa-trash"></i></button>';
